@@ -14,6 +14,8 @@ export function Hero() {
         <Image
           src="/images/hero.webp"
           alt="Hero fallback"
+          fill
+          priority
           className="absolute inset-0 w-full h-full object-cover"
         />
       )}

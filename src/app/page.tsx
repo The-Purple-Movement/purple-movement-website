@@ -4,6 +4,7 @@ import { Hero } from "./components/sections/Hero";
 import { VisionMission } from "./components/sections/VisionMission";
 import Pyramid from "./components/sections/Pyramid";
 import { Manifesto } from "./components/sections/Manifesto";
+import { EnergySpark } from "./components/sections/EnergySpark";
 import { Events } from "./components/sections/Events";
 import { FAQ } from "./components/sections/FAQ";
 import { Contact } from "./components/sections/Contact";
@@ -20,6 +21,7 @@ export default function HomePage() {
         <Whypurple />
         <Pyramid />
         <Manifesto />
+        <EnergySpark />
         <Events />
         <FAQ />
         <Contact />
