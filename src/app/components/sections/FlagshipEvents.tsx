@@ -379,7 +379,7 @@ export default function FlagshipEvents() {
           {/* Heading */}
           <h2
             id="flagship-events-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-pm-text-primary tracking-tight leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-pm-text-primary tracking-wide leading-tight font-nura"
           >
             Our Landmark <span className="text-pm-accent">Projects</span>
           </h2>
@@ -579,7 +579,7 @@ export default function FlagshipEvents() {
                   </div>
 
                   {/* Title & Subtitle */}
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-pm-text-primary tracking-tight mt-3">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-pm-text-primary tracking-wide mt-3 font-nura">
                     {currentEvent.title}
                   </h3>
                   <p className="text-xs sm:text-sm font-semibold text-pm-text-primary/90 mt-1">

@@ -193,7 +193,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({
             fill="var(--pm-text-primary)"
             fontSize="12.5"
             fontWeight="700"
-            className="font-montserrat tracking-wide select-none pointer-events-none"
+            className="font-poppins tracking-wide select-none pointer-events-none"
           >
             Beyond
           </text>
@@ -204,7 +204,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({
             fill="var(--pm-text-primary)"
             fontSize="12.5"
             fontWeight="700"
-            className="font-montserrat tracking-wide select-none pointer-events-none"
+            className="font-poppins tracking-wide select-none pointer-events-none"
           >
             Borders
           </text>
@@ -274,7 +274,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({
             fill="var(--pm-text-primary)"
             fontSize="13.5"
             fontWeight="700"
-            className="font-montserrat tracking-wide select-none pointer-events-none"
+            className="font-poppins tracking-wide select-none pointer-events-none"
           >
             Beyond
           </text>
@@ -285,7 +285,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({
             fill="var(--pm-text-primary)"
             fontSize="13.5"
             fontWeight="700"
-            className="font-montserrat tracking-wide select-none pointer-events-none"
+            className="font-poppins tracking-wide select-none pointer-events-none"
           >
             Gatekeepers
           </text>
@@ -366,7 +366,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({
             fill="var(--pm-text-primary)"
             fontSize="14.5"
             fontWeight="700"
-            className="font-montserrat tracking-wide select-none pointer-events-none"
+            className="font-poppins tracking-wide select-none pointer-events-none"
           >
             Beyond
           </text>
@@ -377,7 +377,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({
             fill="var(--pm-text-primary)"
             fontSize="14.5"
             fontWeight="700"
-            className="font-montserrat tracking-wide select-none pointer-events-none"
+            className="font-poppins tracking-wide select-none pointer-events-none"
           >
             Syllabus
           </text>

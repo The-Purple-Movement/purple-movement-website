@@ -362,7 +362,7 @@ export const Whypurple = () => {
         
         {/* Story Section Header */}
         <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-pm-text-primary font-montserrat mb-4">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-wide text-pm-text-primary font-nura mb-4">
             Why{" "}
             <span
               className="bg-gradient-to-r from-pm-light via-pm-accent to-pm-primary bg-clip-text text-transparent"
@@ -385,7 +385,7 @@ export const Whypurple = () => {
           <div className="flex items-center gap-5 sm:gap-6 p-6 sm:p-7 rounded-3xl bg-pm-story-card-bg border border-pm-story-card-border hover:border-pm-story-card-hover backdrop-blur-md transition-all duration-300 shadow-2xl group">
             <RedOrb />
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold font-montserrat text-pm-text-primary mb-1 tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-bold font-poppins text-pm-text-primary mb-1 tracking-tight">
                 Red
               </h3>
               <p className="text-xs sm:text-sm text-pm-text-secondary font-poppins leading-relaxed">
@@ -398,7 +398,7 @@ export const Whypurple = () => {
           <div className="flex items-center gap-5 sm:gap-6 p-6 sm:p-7 rounded-3xl bg-pm-story-card-bg border border-pm-story-card-border hover:border-pm-story-card-hover backdrop-blur-md transition-all duration-300 shadow-2xl group">
             <BlueOrb />
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold font-montserrat text-pm-text-primary mb-1 tracking-tight">
+              <h3 className="text-xl sm:text-2xl font-bold font-poppins text-pm-text-primary mb-1 tracking-tight">
                 Blue
               </h3>
               <p className="text-xs sm:text-sm text-pm-text-secondary font-poppins leading-relaxed">
@@ -431,7 +431,7 @@ export const Whypurple = () => {
                 isMobile={isMobile}
               />
 
-              <h3 className="text-xl sm:text-2xl font-bold font-montserrat text-pm-text-primary tracking-tight mt-2">
+              <h3 className="text-xl sm:text-2xl font-bold font-poppins text-pm-text-primary tracking-tight mt-2">
                 Purple
               </h3>
               <p className="text-xs sm:text-sm text-pm-accent font-poppins mt-0.5">

@@ -59,7 +59,7 @@ export const VisionMission = () => {
             </div>
 
             {/* Headline */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-pm-text-primary leading-[1.15] mb-6 font-montserrat">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-wide text-pm-text-primary leading-[1.15] mb-6 font-nura">
               A more inclusive<br />
               and{" "}
               <span
@@ -108,7 +108,7 @@ export const VisionMission = () => {
             </div>
 
             {/* Headline */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-pm-text-primary leading-[1.15] mb-6 font-montserrat">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-wide text-pm-text-primary leading-[1.15] mb-6 font-nura">
               People powering<br />
               a{" "}
               <span

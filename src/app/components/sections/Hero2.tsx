@@ -22,17 +22,17 @@ export function Hero2() {
           sizes="100vw"
         />
 
-        {/* Ambient Video Overlay layered over image.webp tilted 20 degrees */}
+        {/* Ambient WebP Animation Overlay layered over image.webp tilted 20 degrees */}
         <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute sm:pt-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full min-w-full min-h-full object-cover object-[center_75%] sm:object-center mix-blend-screen pointer-events-none opacity-90 sm:opacity-60 md:opacity-25 scale-110 sm:scale-125 md:scale-[1.4] lg:scale-[1] rotate-0 md:rotate-[-15deg] [mask-image:radial-gradient(ellipse_at_center,black_75%,transparent_100%)]"
-          >
-            <source src="/videos/hero-bg.mp4" type="video/mp4" />
-          </video>
+          <picture>
+            <source srcSet="/videos/hero-bg.webp" type="image/webp" />
+            <img
+              src="/videos/hero-bg.webp"
+              alt=""
+              aria-hidden="true"
+              className="absolute sm:pt-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full min-w-full min-h-full object-cover object-[center_75%] sm:object-center mix-blend-screen pointer-events-none opacity-90 sm:opacity-60 md:opacity-25 scale-110 sm:scale-125 md:scale-[1.4] lg:scale-[1] rotate-0 md:rotate-[-15deg] [mask-image:radial-gradient(ellipse_at_center,black_75%,transparent_100%)]"
+            />
+          </picture>
         </div>
 
         {/* Left darkening gradient overlay for high contrast text readability */}
@@ -74,7 +74,7 @@ export function Hero2() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="flex items-center gap-3.5 mb-4"
           >
-            <span className="text-sm sm:text-base font-semibold tracking-[0.22em] uppercase text-pm-text-secondary font-montserrat">
+            <span className="text-sm sm:text-base font-semibold tracking-[0.22em] uppercase text-pm-text-secondary font-poppins">
               We Are The
             </span>
             <span className="w-12 sm:w-16 h-px bg-pm-card-border" />
@@ -87,11 +87,11 @@ export function Hero2() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col select-none"
           >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-pm-text-primary leading-[0.92] font-montserrat">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-wide text-pm-text-primary leading-[0.92] font-nura">
               Purple
             </h1>
             <span
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight leading-[0.92] font-montserrat mt-1"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-wide leading-[0.92] font-nura mt-1"
               style={{
                 background:
                   "linear-gradient(180deg, var(--pm-light) 0%, var(--pm-accent) 45%, var(--pm-primary) 100%)",
@@ -221,8 +221,10 @@ export function Hero2() {
                   controls
                   autoPlay
                   playsInline
+                  preload="metadata"
                   className="w-full h-full object-cover"
                 >
+                  <source src="/videos/hero-bg.webm" type="video/webm" />
                   <source src="/videos/hero-bg.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>

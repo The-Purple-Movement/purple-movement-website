@@ -1,31 +1,34 @@
 import type { Metadata } from 'next';
-import { Inter, Montserrat, Poppins, IBM_Plex_Sans_Devanagari } from 'next/font/google';
+import localFont from 'next/font/local';
+import { Poppins } from 'next/font/google';
 import './globals.css';
+import SmoothScroll from './components/providers/SmoothScroll';
 
-const ibmPlexSansDevanagari = IBM_Plex_Sans_Devanagari({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin', 'devanagari'],
+const nura = localFont({
+  src: [
+    {
+      path: '../fonts/Nura-Normal.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/Nura-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-nura',
   display: 'swap',
-  variable: '--font-ibm-plex-sans-devanagari',
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-});
-
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  variable: '--font-montserrat',
 });
 
 const poppins = Poppins({
   subsets: ['latin'],
   variable: '--font-poppins',
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  display: 'swap',
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://tpm.live';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://purple-movement.com';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -163,7 +166,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${montserrat.variable} ${poppins.variable} ${ibmPlexSansDevanagari.variable}`}
+      className={`${nura.variable} ${poppins.variable}`}
     >
       <head>
         <script
@@ -172,6 +175,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-pm-bg-dark font-sans w-full min-h-screen">
+        <SmoothScroll />
         {children}
       </body>
     </html>

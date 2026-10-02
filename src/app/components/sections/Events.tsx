@@ -16,12 +16,12 @@ const events = [
     image: "/images/aic.webp",
     text: "Ai+Compassion"
   },
-  {
-    image: "/images/flow.webp",
-    text: "Enter the Flow"
+   {
+    image: "/images/beyondsylabbus.webp",
+    text: "Beyond Sylabbus"
   },
   {
-    image: "/images/beyondsylabbus.webp",
+    image: "/images/flow.webp",
     text: "Enter the Flow"
   },
   {
@@ -77,7 +77,7 @@ export default function Events() {
       id="events"
     >
       {/* Title */}
-      <h2 className="text-center text-white text-2xl sm:text-4xl md:text-5xl font-semibold font-montserrat">
+      <h2 className="text-center text-white text-2xl sm:text-4xl md:text-5xl font-semibold font-nura tracking-wide">
         Events
       </h2>
 
@@ -192,7 +192,7 @@ export default function Events() {
 
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white font-montserrat mb-2 drop-shadow-lg tracking-tight">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white font-poppins mb-2 drop-shadow-lg tracking-tight">
                       {event.text}
                     </h3>
                     

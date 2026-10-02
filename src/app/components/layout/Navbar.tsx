@@ -102,10 +102,18 @@ export const Navbar = () => {
 
       setIsOpen(false);
 
+      const lenis = typeof window !== 'undefined'
+        ? (window as unknown as { lenis?: { scrollTo: (target: HTMLElement | number, opts?: Record<string, unknown>) => void } }).lenis
+        : undefined;
+
       if (link.href === '/') {
         if (pathname === '/') {
           e.preventDefault();
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          if (lenis) {
+            lenis.scrollTo(0);
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
           window.history.pushState(null, '', '/');
           setActiveSection('/');
         } else {
@@ -120,7 +128,11 @@ export const Navbar = () => {
 
         if (element) {
           e.preventDefault();
-          element.scrollIntoView({ behavior: 'smooth' });
+          if (lenis) {
+            lenis.scrollTo(element, { offset: -80 });
+          } else {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
           window.history.pushState(null, '', link.href);
           setActiveSection(link.href);
         }
@@ -215,7 +227,7 @@ export const Navbar = () => {
           <Link
             href="/join"
             id="nav-join-btn"
-            className="px-5 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-pm-text-primary bg-pm-primary hover:bg-pm-primary-hover border border-pm-primary/40 rounded-xl shadow-[var(--pm-glow)] hover:shadow-[var(--pm-glow-strong)] transition-all duration-300 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent cursor-pointer"
+            className="px-5 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-pm-text-primary bg-pm-primary hover:bg-pm-primary-hover border border-pm-primary/40 rounded-xl shadow-[var(--pm-glow)] hover:shadow-[var(--pm-glow-strong)] transition-all duration-300 hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent cursor-pointer font-nura"
           >
             Join Us
           </Link>
@@ -225,7 +237,7 @@ export const Navbar = () => {
         <div className="md:hidden flex items-center gap-3">
           <Link
             href="/join"
-            className="px-4 py-2 text-xs font-bold uppercase tracking-wider text-pm-text-primary bg-pm-primary hover:bg-pm-primary-hover rounded-lg shadow-sm"
+            className="px-4 py-2 text-xs font-bold uppercase tracking-wider text-pm-text-primary bg-pm-primary hover:bg-pm-primary-hover rounded-lg shadow-sm font-nura"
           >
             Join Us
           </Link>

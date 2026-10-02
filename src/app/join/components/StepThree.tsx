@@ -192,10 +192,10 @@ export default function StepThree({
       {/* Header & Description */}
       <div className="space-y-6">
         <div className="max-w-[864px] w-full mx-auto space-y-3">
-          <h1 className="text-2xl sm:text-4xl font-bold font-montserrat text-white capitalize text-left pl-3 sm:pl-4">
+          <h1 className="text-2xl sm:text-4xl font-bold font-poppins text-white capitalize text-left pl-3 sm:pl-4">
             Tell Us About You
           </h1>
-          <div className="justify-start text-white text-base font-normal font-montserrat capitalize pl-3 sm:pl-4">
+          <div className="justify-start text-white text-base font-normal font-poppins capitalize pl-3 sm:pl-4">
             We&apos;d love to hear from you, or you can stay anonymous.
           </div>
         </div>
@@ -234,7 +234,7 @@ export default function StepThree({
       <div className="max-w-[864px] w-full mx-auto space-y-8">
         {/* Name */}
         <div className="space-y-3">
-          <label className={`block text-sm sm:text-lg text-white font-bold font-montserrat capitalize
+          <label className={`block text-sm sm:text-lg text-white font-bold font-poppins capitalize
             ${notInterested ? 'opacity-50' : ''}
           `}>
             Name:
@@ -259,7 +259,7 @@ export default function StepThree({
 
         {/* Email */}
         <div className="space-y-3">
-          <label className={`block text-sm sm:text-lg text-white font-bold font-montserrat capitalize
+          <label className={`block text-sm sm:text-lg text-white font-bold font-poppins capitalize
             ${notInterested ? 'opacity-50' : ''}
           `}>
             Email:
@@ -284,7 +284,7 @@ export default function StepThree({
 
         {/* Phone */}
         <div className="space-y-3">
-          <label className={`block text-sm sm:text-lg text-white font-bold font-montserrat capitalize
+          <label className={`block text-sm sm:text-lg text-white font-bold font-poppins capitalize
             ${notInterested ? 'opacity-50' : ''}
           `}>
             Phone:
@@ -330,7 +330,7 @@ export default function StepThree({
           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
-          <span className="text-white text-sm font-inter">Back</span>
+          <span className="text-white text-sm font-poppins">Back</span>
         </button>
 
         <button
@@ -345,11 +345,11 @@ export default function StepThree({
           {isSubmitting ? (
             <>
               <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-              <span className="text-white text-sm font-inter">Submitting...</span>
+              <span className="text-white text-sm font-poppins">Submitting...</span>
             </>
           ) : (
             <>
-              <span className="text-white text-sm font-inter">Submit</span>
+              <span className="text-white text-sm font-poppins">Submit</span>
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>

@@ -21,12 +21,12 @@ The movement advocates for open education, practical skill verification over cre
 
 - [Beyond Syllabus Platform](https://wiki-syllabus.vercel.app/): An open-source higher education guide and curriculum breakdown platform. It organizes university syllabi into structured topics, actionable learning paths, and interactive AI-assisted study guides.
 - [AI + Compassion Global Forum 2026](https://compassionai.io/): A 24-hour continuous global relay initiative connecting 12 world regions, innovators, researchers, and cultural leaders to address how artificial intelligence can serve humanity, ecological sustainability, and societal well-being.
-- [Join The Purple Movement](https://tpm.live/join): The onboarding gateway for individuals (students, creators, developers), organizations (startups, labs, NGOs, universities), and public institutions.
+- [Join The Purple Movement](https://purple-movement.com/join): The onboarding gateway for individuals (students, creators, developers), organizations (startups, labs, NGOs, universities), and public institutions.
 
 ## Official Links & Resources
 
-- [Official Website](https://tpm.live): Home page, mission statement, manifesto, and community programs.
-- [Join Us](https://tpm.live/join): Four-step onboarding process for contributors, mentors, and partner organizations.
+- [Official Website](https://purple-movement.com/): Home page, mission statement, manifesto, and community programs.
+- [Join Us](https://purple-movement.com/join): Four-step onboarding process for contributors, mentors, and partner organizations.
 - [Community WhatsApp](https://chat.whatsapp.com/G5qB0FqP6rL6Lg6T5f8z7b): Primary discussion and collaboration channel for members.
 - [Instagram](https://www.instagram.com/tpm.live/): Community stories, event highlights, and visual updates.
 - [X (formerly Twitter)](https://x.com/ThePurpleMVMT): Announcements, release notes, and public discussions.

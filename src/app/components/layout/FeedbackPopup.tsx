@@ -111,7 +111,7 @@ export default function FeedbackPopup({ isOpen, onClose }: FeedbackPopupProps) {
 
         {/* Main heading */}
         <div className="text-center pt-2">
-          <h2 id="feedback-dialog-title" className="text-pm-text-primary text-2xl sm:text-3xl font-bold font-montserrat tracking-tight">
+          <h2 id="feedback-dialog-title" className="text-pm-text-primary text-2xl sm:text-3xl font-bold font-poppins tracking-tight">
             How helpful was this?
           </h2>
           <p className="text-pm-text-muted text-sm font-poppins mt-1">

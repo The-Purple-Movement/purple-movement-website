@@ -11,7 +11,7 @@ export const Manifesto = () => {
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
         <div className="lg:col-span-4 relative">
           <div className="lg:sticky lg:top-32">
-            <h2 className="text-5xl md:text-7xl font-bold font-montserrat tracking-tighter leading-[0.9] mb-5">
+            <h2 className="text-5xl md:text-7xl font-bold font-nura tracking-wide leading-[0.9] mb-5">
               MANI
               <br />
               FESTO<span className="text-pm-accent">.</span>
@@ -31,7 +31,7 @@ export const Manifesto = () => {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h3 className="text-2xl md:text-3xl font-bold font-montserrat mb-4 text-pm-text-primary">
+            <h3 className="text-2xl md:text-3xl font-bold font-poppins mb-4 text-pm-text-primary">
               The Manifestors
             </h3>
             <p className="text-base md:text-lg text-pm-text-secondary font-poppins leading-relaxed border-l border-pm-border-hover pl-5">
@@ -50,7 +50,7 @@ export const Manifesto = () => {
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h3 className="text-2xl md:text-3xl font-bold font-montserrat mb-4 text-pm-text-primary">
+            <h3 className="text-2xl md:text-3xl font-bold font-poppins mb-4 text-pm-text-primary">
               The Producers
             </h3>
             <p className="text-base md:text-lg text-pm-text-secondary font-poppins leading-relaxed border-l border-pm-border-hover pl-5">
@@ -70,7 +70,7 @@ export const Manifesto = () => {
             transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="py-4"
           >
-            <p className="text-2xl md:text-4xl font-bold font-montserrat leading-tight text-pm-text-primary">
+            <p className="text-2xl md:text-4xl font-bold font-poppins leading-tight text-pm-text-primary">
               In access, not gatekeeping.
               <br />
               In bold visions, not borrowed templates.
@@ -88,10 +88,10 @@ export const Manifesto = () => {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative overflow-hidden rounded-2xl bg-pm-deep/20 p-6 md:p-10 border border-pm-border backdrop-blur-sm shadow-xl"
           >
-            <span className="text-xs md:text-sm font-semibold text-pm-accent mb-3 uppercase tracking-widest block font-montserrat">
+            <span className="text-xs md:text-sm font-semibold text-pm-accent mb-3 uppercase tracking-widest block font-poppins">
               The Movement
             </span>
-            <p className="text-2xl md:text-4xl font-bold font-montserrat text-pm-text-primary leading-tight mb-3">
+            <p className="text-2xl md:text-4xl font-bold font-poppins text-pm-text-primary leading-tight mb-3">
               This is <span className="text-pm-accent">The Purple Movement.</span>
             </p>
             <p className="text-base md:text-lg text-pm-text-secondary font-poppins">
@@ -107,7 +107,7 @@ export const Manifesto = () => {
             transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
             className="pt-4"
           >
-            <p className="text-3xl md:text-5xl font-bold font-montserrat tracking-tight text-pm-text-primary leading-tight">
+            <p className="text-3xl md:text-5xl font-bold font-poppins tracking-tight text-pm-text-primary leading-tight">
               We are the energy.
               <br />
               We are the strategy.

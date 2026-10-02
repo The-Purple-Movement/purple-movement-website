@@ -54,77 +54,88 @@ export const Contact = () => {
     }
   };
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="w-[95%] sm:w-[90%] lg:w-[1070px] mx-auto mt-12 sm:mt-16 md:mt-24 px-6 sm:px-8 lg:px-12 py-8 sm:py-12 md:py-14 bg-gradient-to-b from-pm-card via-pm-bg-dark to-pm-bg rounded-2xl sm:rounded-3xl border border-pm-card-border shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12 backdrop-blur-sm scroll-mt-20">
-      
-      {/* Image Section */}
-      <div className="relative w-20 h-20 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-56 lg:h-56 flex-shrink-0 hidden sm:block">
-        <Image 
-          src="/images/qtnmark.webp" 
-          alt="Question Mark"
-          fill
-          className="object-contain"
-          sizes="(max-width: 640px) 80px, (max-width: 768px) 128px, (max-width: 1024px) 160px, 224px"
-        />
+    <section 
+      id="contact" 
+      aria-labelledby="contact-heading" 
+      className="w-full bg-gradient-to-b from-pm-card via-pm-bg-dark to-pm-bg rounded-3xl border border-pm-card-border p-6 sm:p-8 lg:p-8 xl:p-10 shadow-2xl backdrop-blur-md relative overflow-hidden flex flex-col gap-6 scroll-mt-28"
+    >
+      {/* Ambient background glows */}
+      <div className="absolute -top-12 -right-12 w-48 h-48 bg-pm-primary/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-pm-deep/25 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Header with 3D Question Mark Graphic */}
+      <div className="flex items-center gap-4 relative z-10">
+        <div className="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0">
+          <Image 
+            src="/images/qtnmark.webp" 
+            alt="Question Mark"
+            fill
+            className="object-contain drop-shadow-[0_8px_16px_var(--pm-glow)]"
+            sizes="(max-width: 640px) 64px, 80px"
+          />
+        </div>
+        <div className="flex flex-col items-start gap-1">
+          <span className="inline-block px-2.5 py-0.5 rounded-full bg-pm-card border border-pm-card-border text-pm-accent text-xs font-semibold uppercase tracking-wider">
+            Ask Us Anything
+          </span>
+          <h2 id="contact-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold font-nura tracking-wide text-pm-text-primary leading-tight">
+            Any <span className="text-pm-accent">Questions?</span>
+          </h2>
+        </div>
       </div>
 
-      {/* Content Section */}
-      <div className="w-full flex flex-col items-start text-left gap-3 sm:gap-4">
-        {/* Heading */}
-        <h2 id="contact-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-montserrat text-pm-text-primary leading-tight">
-          Any <span className="text-pm-accent">Questions?</span>
-        </h2>
+      {/* Subtext */}
+      <p className="text-sm sm:text-base text-pm-text-secondary font-normal font-poppins leading-relaxed relative z-10">
+        Can&apos;t find what you&apos;re looking for? Reach out anytime and our team will get back to you!
+      </p>
 
-        {/* Subtext */}
-        <p className="text-sm sm:text-base md:text-lg text-pm-text-secondary font-medium font-poppins max-w-xl leading-relaxed">
-          We&apos;re here to help, reach out anytime!
-        </p>
-
-        {/* Input and Submit Section */}
-        <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3 sm:gap-4">
-          <div className="flex flex-col sm:flex-row gap-3 w-full">
-            <label htmlFor="contact-question-input" className="sr-only">Type your question</label>
-            <input 
-              id="contact-question-input"
-              type="text"
-              value={question}
-              onChange={(e) => setQuestion(e.target.value)}
-              placeholder="Type your question..."
-              className="flex-1 w-full sm:max-w-md h-14 bg-pm-card border border-pm-card-border text-pm-text-primary text-base px-4 py-3 rounded-xl font-poppins placeholder:text-pm-text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent focus-visible:border-transparent transition"
-              disabled={isSubmitting}
-            />
-            <button
-              type="submit"
-              disabled={!question.trim() || isSubmitting}
-              className={`w-full sm:w-auto h-14 px-8 rounded-xl font-poppins text-base font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent ${
-                question.trim() && !isSubmitting
-                  ? 'bg-pm-primary hover:bg-pm-primary-hover text-pm-text-primary shadow-[var(--pm-glow)] hover:shadow-[var(--pm-glow-strong)] active:scale-95'
-                  : 'bg-pm-card/40 text-pm-text-muted border border-pm-card-border cursor-not-allowed'
-              }`}
-            >
-              {isSubmitting ? (
-                <div className="flex items-center justify-center gap-2">
-                  <div className="w-4 h-4 border-2 border-pm-text-primary/30 border-t-pm-text-primary rounded-full animate-spin" />
-                  <span>Sending...</span>
-                </div>
-              ) : (
-                'Submit'
-              )}
-            </button>
+      {/* Input and Submit Form */}
+      <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3.5 relative z-10">
+        <div className="flex flex-col gap-3 w-full">
+          <label htmlFor="contact-question-input" className="sr-only">Type your question</label>
+          <input 
+            id="contact-question-input"
+            type="text"
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            placeholder="Type your question..."
+            className="w-full h-13 sm:h-14 bg-pm-card border border-pm-card-border text-pm-text-primary text-base px-4 py-3 rounded-xl font-poppins placeholder:text-pm-text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent focus-visible:border-transparent transition"
+            disabled={isSubmitting}
+          />
+          <button
+            type="submit"
+            disabled={!question.trim() || isSubmitting}
+            className={`w-full h-13 sm:h-14 px-6 rounded-xl font-poppins text-base font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent flex items-center justify-center gap-2 cursor-pointer ${
+              question.trim() && !isSubmitting
+                ? 'bg-pm-primary hover:bg-pm-primary-hover text-pm-text-primary shadow-[var(--pm-glow)] hover:shadow-[var(--pm-glow-strong)] active:scale-95'
+                : 'bg-pm-card/40 text-pm-text-muted border border-pm-card-border cursor-not-allowed'
+            }`}
+          >
+            {isSubmitting ? (
+              <div className="flex items-center justify-center gap-2">
+                <div className="w-4 h-4 border-2 border-pm-text-primary/30 border-t-pm-text-primary rounded-full animate-spin" />
+                <span>Sending...</span>
+              </div>
+            ) : (
+              'Submit Question'
+            )}
+          </button>
+        </div>
+        
+        {/* Status Messages */}
+        {submitStatus === 'success' && (
+          <div className="p-3.5 rounded-xl bg-pm-card border border-pm-success/30 text-pm-success text-sm font-poppins flex items-center gap-2">
+            <span className="font-bold">✓</span>
+            <span>Question submitted successfully! We&apos;ll get back to you soon.</span>
           </div>
-          
-          {/* Status Messages */}
-          {submitStatus === 'success' && (
-            <p className="text-pm-success text-sm font-poppins flex items-center gap-1.5">
-              <span>✓</span> Question submitted successfully! We&apos;ll get back to you soon.
-            </p>
-          )}
-          {submitStatus === 'error' && (
-            <p className="text-pm-error text-sm font-poppins flex items-center gap-1.5">
-              <span>✗</span> Failed to submit question. Please try again.
-            </p>
-          )}
-        </form>
-      </div>
+        )}
+        {submitStatus === 'error' && (
+          <div className="p-3.5 rounded-xl bg-pm-card border border-pm-error/30 text-pm-error text-sm font-poppins flex items-center gap-2">
+            <span className="font-bold">✗</span>
+            <span>Failed to submit question. Please try again.</span>
+          </div>
+        )}
+      </form>
     </section>
   );
 };

@@ -143,7 +143,7 @@ const Pyramid: React.FC = () => {
             </div>
 
             {/* Main Headline */}
-            <h2 className="text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-[3.25rem] font-extrabold tracking-tight text-pm-text-primary leading-[1.08] mb-6 font-montserrat">
+            <h2 className="text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-[3.25rem] font-extrabold tracking-wide text-pm-text-primary leading-[1.08] mb-6 font-nura">
               Growth<br />
               has no<br />
               <span
@@ -236,7 +236,7 @@ const Pyramid: React.FC = () => {
                   >
                     <div className="relative inline-block mb-1.5">
                       <h3
-                        className={`text-lg sm:text-xl font-bold font-montserrat tracking-tight transition-all duration-300 ${
+                        className={`text-lg sm:text-xl font-bold font-poppins tracking-tight transition-all duration-300 ${
                           isHovered
                             ? "text-pm-text-primary drop-shadow-[0_0_12px_var(--pm-glow-strong)]"
                             : "text-pm-text-primary/90"

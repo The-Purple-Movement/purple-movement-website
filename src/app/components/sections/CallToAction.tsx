@@ -13,7 +13,7 @@ export const CallToAction = () => {
 
       {/* Text Section */}
       <div className="max-w-full md:max-w-[650px] text-center md:text-left flex flex-col justify-start items-center md:items-start gap-4 z-10">
-        <h2 id="cta-heading" className="text-2xl sm:text-3xl md:text-5xl font-extrabold font-montserrat text-pm-text-primary tracking-tight">
+        <h2 id="cta-heading" className="text-2xl sm:text-3xl md:text-5xl font-extrabold font-nura text-pm-text-primary tracking-wide">
           Your Journey <span className="text-pm-accent">Begins</span>
         </h2>
 
@@ -23,7 +23,7 @@ export const CallToAction = () => {
           Get ready—the movement ignites with you.
         </p>
 
-        <p className="text-lg sm:text-xl md:text-2xl font-bold font-montserrat text-pm-light">
+        <p className="text-lg sm:text-xl md:text-2xl font-bold font-nura text-pm-light tracking-wide">
           Together, we are the Purple Movement.
         </p>
 
@@ -31,7 +31,7 @@ export const CallToAction = () => {
         <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }}>
           <Link
             href="/join"
-            className="mt-3 inline-flex items-center gap-2.5 px-8 py-3.5 bg-pm-primary hover:bg-pm-primary-hover text-pm-text-primary text-base sm:text-lg font-semibold font-montserrat uppercase tracking-wider rounded-xl shadow-[var(--pm-glow)] hover:shadow-[var(--pm-glow-strong)] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent"
+            className="mt-3 inline-flex items-center gap-2.5 px-8 py-3.5 bg-pm-primary hover:bg-pm-primary-hover text-pm-text-primary text-base sm:text-lg font-semibold font-nura uppercase tracking-wider rounded-xl shadow-[var(--pm-glow)] hover:shadow-[var(--pm-glow-strong)] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pm-accent"
           >
             <span>Join the Movement</span>
             <ArrowRight className="w-5 h-5" />

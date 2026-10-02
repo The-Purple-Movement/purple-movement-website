@@ -33,7 +33,7 @@ export default function StepOne({ selectedOption, onCardClick }: StepOneProps) {
     <div className="space-y-8 sm:space-y-12 w-full">
       {/* Header */}
       <div className="space-y-3 sm:space-y-4 text-center">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-montserrat">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-poppins">
           What Defines You?
         </h1>
         <p className="text-sm sm:text-base md:text-lg font-normal font-poppins text-zinc-300">
@@ -72,7 +72,7 @@ export default function StepOne({ selectedOption, onCardClick }: StepOneProps) {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold font-montserrat text-pm-text-primary mb-2 group-hover:text-pm-accent transition-colors">
+              <h2 className="text-xl sm:text-2xl font-bold font-poppins text-pm-text-primary mb-2 group-hover:text-pm-accent transition-colors">
                 {option.label}
               </h2>
               <p className="text-pm-text-secondary text-sm font-normal font-poppins leading-relaxed">

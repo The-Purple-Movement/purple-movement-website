@@ -65,7 +65,7 @@ export default function StepTwo({
         <div className="max-w-[864px] w-full mx-auto space-y-3">
           <label
             htmlFor="role-select"
-            className="block text-base sm:text-xl md:text-2xl font-semibold font-montserrat capitalize text-white tracking-wide"
+            className="block text-base sm:text-xl md:text-2xl font-semibold font-poppins capitalize text-white tracking-wide"
           >
             What defines you?
           </label>{" "}
@@ -115,7 +115,7 @@ export default function StepTwo({
         <div className="max-w-[864px] w-full mx-auto space-y-3">
           <label
             htmlFor="why-here"
-            className="block text-base sm:text-xl md:text-2xl font-semibold font-montserrat capitalize text-white tracking-wide"
+            className="block text-base sm:text-xl md:text-2xl font-semibold font-poppins capitalize text-white tracking-wide"
           >
             What Do You Want to Share?
           </label>
@@ -179,7 +179,7 @@ export default function StepTwo({
               d="M15 19l-7-7 7-7"
             />
           </svg>
-          <span className="text-white text-sm font-inter">Back</span>
+          <span className="text-white text-sm font-poppins">Back</span>
         </button>
 
         <button
@@ -191,7 +191,7 @@ export default function StepTwo({
               : "bg-purple-700/50 cursor-not-allowed"
           }`}
         >
-          <span className="text-white text-sm font-inter">Next</span>
+          <span className="text-white text-sm font-poppins">Next</span>
           <svg
             className="w-5 h-5 text-white"
             fill="none"

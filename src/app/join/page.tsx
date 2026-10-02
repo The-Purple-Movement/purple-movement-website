@@ -212,7 +212,7 @@ export default function JoinUsPage() {
                       }`}
                     />
                     <span
-                      className={`absolute inset-0 flex items-center justify-center text-sm sm:text-base font-bold font-montserrat ${
+                      className={`absolute inset-0 flex items-center justify-center text-sm sm:text-base font-bold font-poppins ${
                         step.number <= currentStep ? 'text-white' : 'text-white/50'
                       }`}
                     >
