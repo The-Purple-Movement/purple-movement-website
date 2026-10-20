@@ -1,39 +1,27 @@
 # The Purple Movement
 
-> The Purple Movement (TPM) is a global network of students, professionals, and changemakers breaking barriers in education and opportunity. Guided by three foundational pillars — Beyond Syllabus, Beyond Gatekeepers, and Beyond Borders — the movement connects curious learners with industry mentors, open-source educational resources, and international innovation platforms.
+> The Purple Movement connects young people, experienced professionals, institutions and communities to learn, collaborate and turn ideas into measurable action. Red stands for the energy of youth, blue for the experience of professionals; together, purple. Its three pillars are Beyond Borders, Beyond Gatekeepers and Beyond Syllabus.
 
-## Overview
+## Key pages
 
-The Purple Movement is rooted in the synthesis of two complementary groups:
-- **Red (Youth & Energy)**: Students and early-career learners with curiosity, ambition, and the drive to solve real problems.
-- **Blue (Experience & Wisdom)**: Seasoned professionals, domain experts, and mentors who provide direction and open doors.
-- **Purple (The Synthesis)**: When youth initiative and experienced mentorship collaborate without institutional gatekeeping.
+- [Home](https://purple-movement.com/): what the movement does, activities, impact, legacy and how to join.
+- [The Manifesto](https://purple-movement.com/manifesto): "We are the Manifestors of Change." The movement's founding text.
+- [Join the Movement](https://purple-movement.com/join): a four-step form for individuals, organizations and government partners. Anonymous participation is possible.
+- [Privacy notice](https://purple-movement.com/privacy) and [Terms of use](https://purple-movement.com/terms).
 
-The movement advocates for open education, practical skill verification over credentialism, and cross-border collaboration for societal impact.
+## Activities
 
-## Core Pillars
+- [Rise Together 2026](https://risetogether2026.com/): 18 November 2026, Park Centre, Technopark Phase 1, Thiruvananthapuram, Kerala. Convened by The Purple Movement. Brings government, industry, academia, startups, communities and young people together to connect existing capabilities into collaborative pilots, reviewed at 30, 90 and 180 days.
+- [Beyond Syllabus (Bridge The Gap 4.0)](https://capabilitycommons.com/): a six-month journey on the future of education, August 2026 to January 2027, with a public archive called Capability Commons.
+- [AI + Compassion Global Forum 2026](https://compassionai.io/): a 24-hour global relay across 12 world regions, held 2–3 October 2026 from Kyoto.
+- Domain and campus chapters in the ":80" format, such as PRN:80, STI:80 and AEC&B:80 (2025). Each has a page under https://purple-movement.com/activities/.
 
-- **Beyond Syllabus**: Learning unconstrained by rigid academic curricula. Students explore practical technologies, open-source projects, and hands-on problem solving rather than purely memorizing theory.
-- **Beyond Gatekeepers**: Equalizing access to networks, mentorship, and opportunities regardless of college tier, geographic location, or background.
-- **Beyond Borders**: Connecting talent worldwide to collaborate across disciplines, cultures, and geographical boundaries without artificial barriers.
+## Legacy
 
-## Key Initiatives & Platforms
+The movement builds on FAYA:80 (read "FAYA port 80"), a free monthly technology gathering at Technopark, Thiruvananthapuram, from 5 June 2013 to its final edition, Beyond FAYA:80, on 28 June 2025. Archive: https://www.fayaport80.com/
 
-- [Beyond Syllabus Platform](https://wiki-syllabus.vercel.app/): An open-source higher education guide and curriculum breakdown platform. It organizes university syllabi into structured topics, actionable learning paths, and interactive AI-assisted study guides.
-- [AI + Compassion Global Forum 2026](https://compassionai.io/): A 24-hour continuous global relay initiative connecting 12 world regions, innovators, researchers, and cultural leaders to address how artificial intelligence can serve humanity, ecological sustainability, and societal well-being.
-- [Join The Purple Movement](https://tpm.live/join): The onboarding gateway for individuals (students, creators, developers), organizations (startups, labs, NGOs, universities), and public institutions.
+## Social
 
-## Official Links & Resources
-
-- [Official Website](https://tpm.live): Home page, mission statement, manifesto, and community programs.
-- [Join Us](https://tpm.live/join): Four-step onboarding process for contributors, mentors, and partner organizations.
-- [Community WhatsApp](https://chat.whatsapp.com/G5qB0FqP6rL6Lg6T5f8z7b): Primary discussion and collaboration channel for members.
-- [Instagram](https://www.instagram.com/tpm.live/): Community stories, event highlights, and visual updates.
-- [X (formerly Twitter)](https://x.com/ThePurpleMVMT): Announcements, release notes, and public discussions.
-- [LinkedIn](https://www.linkedin.com/company/the-purple-movement/): Professional network, partnerships, and organizational updates.
-
-## Common Inquiries
-
-- **Who can join?** Any individual driven by purpose — whether a student, developer, designer, researcher, or working professional — can participate without prerequisites or entrance barriers.
-- **What is the focus of Beyond Syllabus?** To bridge the gap between academic theory and industry reality by offering practical, community-maintained learning roadmaps and AI-guided learning tools.
-- **How can organizations collaborate?** Startups, academic institutions, and labs can partner with The Purple Movement to host workshops, offer mentorship, or co-develop open-source solutions.
+- Instagram: https://www.instagram.com/tpm.live/
+- LinkedIn: https://www.linkedin.com/company/the-purple-movement/
+- X: https://x.com/ThePurpleMVMT
