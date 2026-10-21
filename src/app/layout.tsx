@@ -1,177 +1,81 @@
-import type { Metadata } from 'next';
-import { Inter, Montserrat, Poppins, IBM_Plex_Sans_Devanagari } from 'next/font/google';
-import './globals.css';
+import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
+import { absoluteUrl, ogDefaults, site, siteUrl } from "@/content/site";
+import "./globals.css";
 
-const ibmPlexSansDevanagari = IBM_Plex_Sans_Devanagari({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin', 'devanagari'],
-  display: 'swap',
-  variable: '--font-ibm-plex-sans-devanagari',
+const inter = localFont({
+  src: "./fonts/inter-latin-wght.woff2",
+  weight: "100 900",
+  display: "swap",
+  variable: "--font-inter",
+  // Body text renders immediately in the metric-matched fallback; only the display face (the H1, our LCP) is preloaded.
+  preload: false,
 });
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+const montserrat = localFont({
+  src: "./fonts/montserrat-latin-wght.woff2",
+  weight: "100 900",
+  display: "swap",
+  variable: "--font-montserrat",
 });
 
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  variable: '--font-montserrat',
-});
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  variable: '--font-poppins',
-  weight: ['300', '400', '500', '600', '700'],
-});
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://tpm.live';
+const title = "The Purple Movement | Uniting Purposeful People Worldwide";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: {
-    default: 'The Purple Movement | Beyond Syllabus, Beyond Gatekeepers, Beyond Borders',
-    template: '%s | The Purple Movement',
-  },
-  description:
-    'The Purple Movement is a global force of purposeful people, changemakers, and visionaries coming together to create a borderless future full of impact and possibility.',
-  keywords: [
-    'Purple Movement',
-    'The Purple Movement',
-    'Beyond Syllabus',
-    'Beyond Gatekeepers',
-    'Beyond Borders',
-    'AI and Compassion',
-    'Global Youth Movement',
-    'Student Innovation',
-    'Open Source Education',
-    'Changemakers',
-    'Higher Education Innovation',
-  ],
-  authors: [{ name: 'The Purple Movement', url: siteUrl }],
-  creator: 'The Purple Movement',
-  publisher: 'The Purple Movement',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  alternates: {
-    canonical: '/',
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: siteUrl,
-    siteName: 'The Purple Movement',
-    title: 'The Purple Movement | Uniting Purposeful People Worldwide',
-    description:
-      'A global force of purposeful people, changemakers, and visionaries coming together to create a borderless future full of impact and possibility.',
-    images: [
-      {
-        url: '/image.webp',
-        width: 1200,
-        height: 630,
-        alt: 'The Purple Movement — Beyond Syllabus, Beyond Gatekeepers, Beyond Borders',
-      },
-    ],
-  },
+  title: { default: title, template: "%s · The Purple Movement" },
+  description: site.description,
+  applicationName: site.name,
+  alternates: { canonical: "/" },
+  openGraph: { ...ogDefaults, url: "/", title, description: site.description },
   twitter: {
-    card: 'summary_large_image',
-    title: 'The Purple Movement | Uniting Purposeful People Worldwide',
-    description:
-      'A global force of purposeful people, changemakers, and visionaries coming together to create a borderless future full of impact and possibility.',
-    creator: '@ThePurpleMVMT',
-    site: '@ThePurpleMVMT',
-    images: ['/image.webp'],
+    card: "summary_large_image",
+    site: "@ThePurpleMVMT",
+    title,
+    description: site.description,
+    images: ["/image.webp"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/logos/logo_pm.webp',
-  },
+  icons: { icon: "/favicon.ico", apple: "/logos/logo_pm.webp" },
 };
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@graph': [
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  colorScheme: "light",
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      '@type': 'Organization',
-      '@id': `${siteUrl}/#organization`,
-      name: 'The Purple Movement',
-      alternateName: ['Purple Movement', 'TPM'],
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: site.name,
+      alternateName: ["Purple Movement", "TPM"],
       url: siteUrl,
-      logo: {
-        '@type': 'ImageObject',
-        '@id': `${siteUrl}/#logo`,
-        url: `${siteUrl}/logos/logo_pm.webp`,
-        caption: 'The Purple Movement Logo',
-      },
-      image: `${siteUrl}/image.webp`,
-      description:
-        'A global force of purposeful people, changemakers, and visionaries coming together to create a borderless future full of impact and possibility.',
-      sameAs: [
-        'https://www.instagram.com/tpm.live/',
-        'https://x.com/ThePurpleMVMT',
-        'https://www.linkedin.com/company/the-purple-movement/',
-      ],
+      logo: absoluteUrl("/logos/logo_pm.webp"),
+      description: site.description,
+      sameAs: site.social.map((s) => s.href),
     },
     {
-      '@type': 'WebSite',
-      '@id': `${siteUrl}/#website`,
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
       url: siteUrl,
-      name: 'The Purple Movement',
-      description: 'Beyond Syllabus, Beyond Gatekeepers, Beyond Borders',
-      publisher: {
-        '@id': `${siteUrl}/#organization`,
-      },
-      inLanguage: 'en-US',
-    },
-    {
-      '@type': 'WebPage',
-      '@id': `${siteUrl}/#webpage`,
-      url: siteUrl,
-      name: 'The Purple Movement | Beyond Syllabus, Beyond Gatekeepers, Beyond Borders',
-      isPartOf: {
-        '@id': `${siteUrl}/#website`,
-      },
-      about: {
-        '@id': `${siteUrl}/#organization`,
-      },
-      description:
-        'The Purple Movement is a global collective of purposeful changemakers, innovators, and leaders creating a borderless future. Discover our flagship initiatives: Beyond Syllabus and AI + Compassion.',
+      name: site.name,
+      publisher: { "@id": `${siteUrl}/#organization` },
+      inLanguage: "en",
     },
   ],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      data-scroll-behavior="smooth"
-      className={`${inter.variable} ${montserrat.variable} ${poppins.variable} ${ibmPlexSansDevanagari.variable}`}
-    >
-      <head>
+    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
+      <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          // JSON.stringify output contains no executable markup; "<" is escaped defensively.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c") }}
         />
-      </head>
-      <body className="bg-pm-bg-dark font-sans w-full min-h-screen">
         {children}
       </body>
     </html>

@@ -6,10 +6,10 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'The Purple Movement',
     short_name: 'Purple Movement',
-    description: 'Beyond Syllabus, Beyond Gatekeepers, Beyond Borders. A global collective of purposeful changemakers.',
+    description: 'Beyond Syllabus, Beyond Gatekeepers, Beyond Borders. A global force of purposeful people, changemakers, and visionaries.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#050511',
+    background_color: '#000000',
     theme_color: '#9333ea',
     icons: [
       {

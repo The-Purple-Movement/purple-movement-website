@@ -1,320 +1,330 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/*
+ * Purple Movement design tokens — the single source of truth.
+ * Components use the Tailwind utilities these generate (bg-pm-*, text-pm-*, font-display, text-display-xl …)
+ * or var(--pm-*) / var(--*). Never hardcode colours or one-off sizes in components (see AGENTS.md).
+ */
 
+:root {
+  /*
+   * Colour — light theme (default). Contrast measured on --pm-bg (white) and --pm-surface-alt.
+   * Sections that need the dark palette (header, hero, footer) add the .pm-dark class below.
+   */
+  --pm-bg: #ffffff;                 /* page */
+  --pm-surface-alt: #f7f4fc;        /* alternate sections: soft lavender */
+  --pm-surface: #ffffff;            /* cards */
+  --pm-field: #f3eefb;              /* inputs, hover surfaces */
+  --pm-line: #e4def0;               /* hairline rules */
+  --pm-line-strong: #8b84a3;        /* input borders, 3.6:1 */
+
+  --pm-text: #17142e;               /* 17.4:1 */
+  --pm-text-secondary: #3f3a5a;     /* 10.6:1 */
+  --pm-text-muted: #5f5a78;         /* 6.4:1 */
+
+  --pm-tint: #efe5fd;               /* purple-tinted panels */
+  --pm-purple-700: #7e22ce;         /* button hover */
+  --pm-purple-600: #9333ea;         /* primary fill */
+  --pm-on-accent: #ffffff;          /* text on purple fills, 5.4:1 */
+  --pm-accent: #7e22ce;             /* accent text and rules, 6.9:1 */
+  --pm-accent-strong: #6b21a8;      /* links, highlights, focus ring, 8.6:1 */
+
+  --pm-red: #be123c;                /* "Why Purple": youth, 6.6:1 */
+  --pm-blue: #1d4ed8;               /* "Why Purple": experience, 6.7:1 */
+
+  --pm-success: #15803d;            /* 5.0:1 */
+  --pm-error: #b91c1c;              /* 6.5:1 */
+  --pm-whatsapp: #047857;           /* white text 5.5:1 */
+
+  /* Motion */
+  --pm-duration-fast: 150ms;
+  --pm-duration-base: 250ms;
+  --pm-ease: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Layout */
+  --pm-header-height: 4.5rem;   /* sticky header; used for anchor offsets */
+}
+
+@theme {
+  /* Breakpoints (Tailwind defaults, declared so the system is explicit) */
+  --breakpoint-sm: 40rem;   /* 640px */
+  --breakpoint-md: 48rem;   /* 768px */
+  --breakpoint-lg: 64rem;   /* 1024px */
+  --breakpoint-xl: 80rem;   /* 1280px */
+  --breakpoint-2xl: 90rem;  /* 1440px */
+
+  /* Spacing: one 4px base unit; p-4 = 16px, p-6 = 24px, etc. */
+  --spacing: 0.25rem;
+
+  /* Typefaces: two families only */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-montserrat), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* Type scale (body never below 16px) */
+  --text-sm: 0.875rem;            /* 14px — metadata only, never body copy */
+  --text-sm--line-height: 1.5;
+  --text-base: 1rem;              /* 16px — mobile body */
+  --text-base--line-height: 1.6;
+  --text-lg: 1.125rem;            /* 18px — desktop body, lead */
+  --text-lg--line-height: 1.6;
+  --text-xl: 1.25rem;             /* 20px */
+  --text-xl--line-height: 1.45;
+  --text-2xl: 1.5rem;             /* 24px — h3 */
+  --text-2xl--line-height: 1.3;
+  --text-display-sm: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);   /* h2 */
+  --text-display-sm--line-height: 1.12;
+  --text-display-md: clamp(2.25rem, 1.6rem + 2.8vw, 3.75rem);  /* section feature */
+  --text-display-md--line-height: 1.04;
+  --text-display-lg: clamp(2.5rem, 1.6rem + 3.4vw, 4.25rem);   /* h1 */
+  --text-display-lg--line-height: 1;
+
+  /* Radii */
+  --radius-sm: 0.25rem;  /* 4px  — inputs, tags */
+  --radius-md: 0.5rem;   /* 8px  — buttons, cards */
+  --radius-lg: 1rem;     /* 16px — media, dialogs */
+
+  /* Shadows (used sparingly: dialogs and focus only) */
+  --shadow-dialog: 0 24px 64px rgba(23, 20, 46, 0.25);
+
+  /* Motion utilities */
+  --ease-pm: var(--pm-ease);
+  --default-transition-duration: var(--pm-duration-fast);
+  --default-transition-timing-function: var(--pm-ease);
+}
+
+/* Inline so utilities read the variables where they are used: .pm-dark sections re-scope them. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter), Arial, Helvetica, sans-serif;
-  --font-montserrat: var(--font-montserrat), sans-serif;
-  --font-poppins: var(--font-poppins), sans-serif;
-  --font-ibm-plex-devanagari: var(--font-ibm-plex-sans-devanagari), sans-serif;
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-
-  /* Purple Movement Brand Tokens */
-  --color-pm-primary: var(--pm-primary);
-  --color-pm-primary-hover: var(--pm-primary-hover);
-  --color-pm-accent: var(--pm-accent);
-  --color-pm-light: var(--pm-light);
-  --color-pm-dark: var(--pm-dark);
-  --color-pm-deep: var(--pm-deep);
-  --color-pm-glow: var(--pm-glow);
-
-  /* Surface & Background Tokens */
   --color-pm-bg: var(--pm-bg);
-  --color-pm-bg-dark: var(--pm-bg-dark);
-  --color-pm-bg-subtle: var(--pm-bg-subtle);
-  --color-pm-bg-gradient-from: var(--pm-bg-gradient-from);
-  --color-pm-bg-gradient-via: var(--pm-bg-gradient-via);
-  --color-pm-bg-gradient-to: var(--pm-bg-gradient-to);
-  --color-pm-card: var(--pm-card);
-  --color-pm-card-hover: var(--pm-card-hover);
-  --color-pm-card-border: var(--pm-card-border);
-  --color-pm-border: var(--pm-border);
-  --color-pm-border-hover: var(--pm-border-hover);
-
-  /* Timeline & Icon Card Tokens */
-  --color-pm-timeline-track: var(--pm-timeline-track);
-  --color-pm-timeline-node: var(--pm-timeline-node);
-  --color-pm-icon-box-bg: var(--pm-icon-box-bg);
-  --color-pm-icon-box-border: var(--pm-icon-box-border);
-  --color-pm-icon-box-hover: var(--pm-icon-box-hover);
-  --color-pm-pyramid-rim: var(--pm-pyramid-rim);
-  --color-pm-pyramid-rim-bright: var(--pm-pyramid-rim-bright);
-
-  /* Text Tokens */
-  --color-pm-text-primary: var(--pm-text-primary);
+  --color-pm-surface-alt: var(--pm-surface-alt);
+  --color-pm-surface: var(--pm-surface);
+  --color-pm-field: var(--pm-field);
+  --color-pm-line: var(--pm-line);
+  --color-pm-line-strong: var(--pm-line-strong);
+  --color-pm-text: var(--pm-text);
   --color-pm-text-secondary: var(--pm-text-secondary);
   --color-pm-text-muted: var(--pm-text-muted);
-
-  /* Pyramid Tier Tokens */
-  --color-pm-tier1-start: var(--pm-tier1-start);
-  --color-pm-tier1-end: var(--pm-tier1-end);
-  --color-pm-tier1-text: var(--pm-tier1-text);
-  --color-pm-tier2-start: var(--pm-tier2-start);
-  --color-pm-tier2-end: var(--pm-tier2-end);
-  --color-pm-tier2-text: var(--pm-tier2-text);
-  --color-pm-tier3-start: var(--pm-tier3-start);
-  --color-pm-tier3-end: var(--pm-tier3-end);
-  --color-pm-tier3-text: var(--pm-tier3-text);
-
-  /* UI Feedback & Story Tokens */
+  --color-pm-tint: var(--pm-tint);
+  --color-pm-purple-700: var(--pm-purple-700);
+  --color-pm-purple-600: var(--pm-purple-600);
+  --color-pm-on-accent: var(--pm-on-accent);
+  --color-pm-accent: var(--pm-accent);
+  --color-pm-accent-strong: var(--pm-accent-strong);
+  --color-pm-red: var(--pm-red);
+  --color-pm-blue: var(--pm-blue);
   --color-pm-success: var(--pm-success);
   --color-pm-error: var(--pm-error);
   --color-pm-whatsapp: var(--pm-whatsapp);
-  --color-pm-whatsapp-hover: var(--pm-whatsapp-hover);
-  --color-pm-red: var(--pm-red);
-  --color-pm-blue: var(--pm-blue);
-  --color-pm-story-card-bg: var(--pm-story-card-bg);
-  --color-pm-story-card-border: var(--pm-story-card-border);
-  --color-pm-story-card-hover: var(--pm-story-card-hover);
-  --color-pm-orb-red-shadow: var(--pm-orb-red-shadow);
-  --color-pm-orb-blue-shadow: var(--pm-orb-blue-shadow);
-  --color-pm-orb-purple-shadow: var(--pm-orb-purple-shadow);
-  --color-pm-orb-purple-glow: var(--pm-orb-purple-glow);
-
-  /* Flagship Events — Teal Accent (AI+Compassion) */
-  --color-pm-teal: var(--pm-teal);
-  --color-pm-teal-light: var(--pm-teal-light);
-  --color-pm-teal-dark: var(--pm-teal-dark);
-  --color-pm-teal-glow: var(--pm-teal-glow);
 }
 
-body {
-  font-family: var(--font-sans); /* Use the Tailwind variable instead */
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-* {
-  scroll-behavior: smooth;
-}
-
-body::-webkit-scrollbar {
-  width: 2px;
-}
-
-body::-webkit-scrollbar-track {
-  background: var(--pm-scrollbar-track);
-}
-
-body::-webkit-scrollbar-thumb {
-  background: var(--pm-scrollbar-thumb);
-  border-radius: 20px;
-}
-
-.blend {
-  mix-blend-mode: lighten;
-}
-
-#spotlight {
-  transition: background 0.1s ease;
-  mix-blend-mode: screen;
-}
-
-:root {
-  /* --- Purple Movement Design System Tokens --- */
-  /* Brand Tokens */
-  --pm-primary: #9333ea;         /* Purple 600 */
-  --pm-primary-hover: #a855f7;   /* Purple 500 */
-  --pm-accent: #c084fc;          /* Purple 400 */
-  --pm-light: #e9d5ff;           /* Purple 200 */
-  --pm-dark: #581c87;            /* Purple 900 */
-  --pm-deep: #3b0764;            /* Purple 950 */
-  --pm-glow: rgba(168, 85, 247, 0.25);
-
-  /* Surfaces & Backgrounds */
+/* Dark palette for the header, hero and footer (the logo wordmark is white). Contrast measured on #060716. */
+.pm-dark {
   --pm-bg: #000000;
-  --pm-bg-dark: #050511;
-  --pm-bg-subtle: #0f172a;
-  --pm-bg-gradient-from: #020309;
-  --pm-bg-gradient-via: #05041b;
-  --pm-bg-gradient-to: #020309;
-  --pm-card: rgba(24, 24, 27, 0.6);
-  --pm-card-hover: rgba(39, 39, 42, 0.8);
-  --pm-card-border: rgba(255, 255, 255, 0.1);
-  --pm-border: rgba(168, 85, 247, 0.2);
-  --pm-border-hover: rgba(168, 85, 247, 0.5);
-
-  /* Typography */
-  --pm-text-primary: #ffffff;
-  --pm-text-secondary: #d4d4d8;
-  --pm-text-muted: #a1a1aa;
-
-  /* Pyramid Tiers */
-  --pm-tier1-start: #E9D5FF;
-  --pm-tier1-end: #C084FC;
-  --pm-tier1-text: #3B0764;
-  --pm-tier2-start: #A855F7;
-  --pm-tier2-end: #7E22CE;
-  --pm-tier2-text: #FFFFFF;
-  --pm-tier3-start: #8B5CF6;
-  --pm-tier3-end: #581C87;
-  --pm-tier3-text: #FFFFFF;
-
-  /* Pyramid & Timeline Visuals */
-  --pm-glow-strong: rgba(192, 132, 252, 0.55);
-  --pm-pyramid-glass-top: rgba(30, 10, 55, 0.75);
-  --pm-pyramid-glass-bottom: rgba(12, 3, 24, 0.92);
-  --pm-pyramid-rim: #c084fc;
-  --pm-pyramid-rim-bright: #f3e8ff;
-  --pm-pyramid-glow: rgba(168, 85, 247, 0.5);
-  --pm-pyramid-orbit: rgba(168, 85, 247, 0.18);
-  --pm-timeline-track: rgba(168, 85, 247, 0.25);
-  --pm-timeline-node: #c084fc;
-  --pm-timeline-node-active: #f3e8ff;
-  --pm-icon-box-bg: rgba(28, 10, 48, 0.6);
-  --pm-icon-box-border: rgba(168, 85, 247, 0.35);
-  --pm-icon-box-hover: rgba(192, 132, 252, 0.7);
-
-  /* Scrollbars */
-  --pm-scrollbar-track: #21012e;
-  --pm-scrollbar-thumb: #5c0080;
-
-  /* System & Actions */
-  --pm-success: #10b981;
-  --pm-error: #ef4444;
-  --pm-whatsapp: #059669;
-  --pm-whatsapp-hover: #10b981;
-  --pm-red: #f43f5e;
-  --pm-red-glow: rgba(244, 63, 94, 0.65);
-  --pm-blue: #3b82f6;
-  --pm-blue-glow: rgba(59, 130, 246, 0.65);
-
-  /* Flagship Events — Teal Accent (AI+Compassion Global Forum) */
-  --pm-teal: #0d9488;            /* Teal 600 */
-  --pm-teal-light: #2dd4bf;      /* Teal 400 */
-  --pm-teal-dark: #0f766e;       /* Teal 700 */
-  --pm-teal-glow: rgba(13, 148, 136, 0.3);
-
-  /* 3D Glass Orbs & Story Cards */
-  --pm-orb-red-highlight: #ff80b3;
-  --pm-orb-red-base: #ff1a75;
-  --pm-orb-red-dark: #4a001a;
-  --pm-orb-red-shadow: #1f000b;
-  --pm-orb-red-glow: rgba(255, 26, 117, 0.8);
-  --pm-orb-blue-highlight: #a5b4fc;
-  --pm-orb-blue-base: #6366f1;
-  --pm-orb-blue-dark: #1e1b4b;
-  --pm-orb-blue-shadow: #0c0724;
-  --pm-orb-blue-glow: rgba(99, 102, 241, 0.8);
-  --pm-orb-purple-highlight: #f3e8ff;
-  --pm-orb-purple-base: #a855f7;
-  --pm-orb-purple-dark: #4c1d95;
-  --pm-orb-purple-shadow: #1e0538;
-  --pm-orb-purple-glow: rgba(168, 85, 247, 0.85);
-  --pm-story-card-bg: rgba(18, 7, 34, 0.55);
-  --pm-story-card-border: rgba(168, 85, 247, 0.22);
-  --pm-story-card-hover: rgba(168, 85, 247, 0.45);
-
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --pm-surface-alt: #060716;
+  --pm-surface: #0c0e26;
+  --pm-field: #171a3d;
+  --pm-line: rgba(255, 255, 255, 0.16);
+  --pm-line-strong: rgba(255, 255, 255, 0.32);
+  --pm-text: #ffffff;               /* 19.9:1 */
+  --pm-text-secondary: #d4d4d8;     /* 13.9:1 */
+  --pm-text-muted: #a8a8b3;         /* 8.3:1 */
+  --pm-tint: #23063f;
+  --pm-accent: #c084fc;             /* 8.6:1 */
+  --pm-accent-strong: #e9d5ff;
+  --pm-success: #4ade80;
+  --pm-error: #fca5a5;
+  color: var(--pm-text);
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  html {
+    background: var(--pm-bg);
+    color: var(--pm-text);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
+
   body {
-    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    background: var(--pm-bg);
+    color: var(--pm-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (min-width: 64rem) {
+    body {
+      font-size: var(--text-lg);
+    }
+  }
+
+  /* Anchored sections land below the sticky header. */
+  [id] {
+    scroll-margin-top: calc(var(--pm-header-height) + 1rem);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--pm-accent-strong);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  ::selection {
+    background: var(--pm-purple-600);
+    color: var(--pm-on-accent);
+  }
+
+  dialog::backdrop {
+    background: rgba(23, 20, 46, 0.6);
+  }
+
+  /* Native select options inherit the dark theme. */
+  option {
+    background: var(--pm-surface);
+    color: var(--pm-text);
+  }
+}
+
+@layer components {
+  /* Shared page gutter + max width: 16px mobile, 32px tablet, 48px desktop. */
+  .pm-container {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: calc(var(--spacing) * 4);
+  }
+
+  @media (min-width: 48rem) {
+    .pm-container {
+      padding-inline: calc(var(--spacing) * 8);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .pm-container {
+      padding-inline: calc(var(--spacing) * 12);
+    }
+  }
+
+  /* Small uppercase label above section headings. */
+  .pm-eyebrow {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pm-accent);
+  }
+
+  /* Long-form text (legal pages). */
+  .pm-prose {
+    max-width: 44rem;
+    color: var(--pm-text-secondary);
+  }
+  .pm-prose h2 {
+    margin-top: calc(var(--spacing) * 12);
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    line-height: var(--text-2xl--line-height);
+    font-weight: 700;
+    color: var(--pm-text);
+  }
+  .pm-prose h3 {
+    margin-top: calc(var(--spacing) * 6);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--pm-text);
+  }
+  .pm-prose p,
+  .pm-prose ul,
+  .pm-prose table {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .pm-prose ul {
+    list-style: disc;
+    padding-left: calc(var(--spacing) * 6);
+  }
+  .pm-prose li + li {
+    margin-top: calc(var(--spacing) * 2);
+  }
+  .pm-prose a {
+    color: var(--pm-accent-strong);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .pm-prose strong {
+    color: var(--pm-text);
+  }
+  .pm-prose table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-base);
+  }
+  .pm-prose th,
+  .pm-prose td {
+    border-bottom: 1px solid var(--pm-line);
+    padding: calc(var(--spacing) * 3) calc(var(--spacing) * 3) calc(var(--spacing) * 3) 0;
+    text-align: left;
+    vertical-align: top;
+  }
+  .pm-prose th {
+    color: var(--pm-text);
+    font-weight: 600;
+  }
+
+  /* Hero artwork: full-bleed and faded into the page (left and bottom edges), never a boxed image. */
+  .pm-hero-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 72% 45%;
+    opacity: 0.45;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 60%), linear-gradient(to top, transparent 0%, #000 35%);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent 0%, #000 60%), linear-gradient(to top, transparent 0%, #000 35%);
+    mask-composite: intersect;
+  }
+
+  @media (min-width: 64rem) {
+    .pm-hero-art {
+      left: auto;
+      width: 68%;
+      opacity: 1;
+    }
+  }
+
+  /* Soft purple light behind the hero text; also the whole hero visual on phones (no image download). */
+  .pm-hero-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(70% 60% at 85% 35%, rgba(147, 51, 234, 0.35), transparent 70%);
+  }
+
+  /* Card whose single link covers the whole card without nesting interactive elements. */
+  .pm-stretched-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
   }
 }

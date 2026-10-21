@@ -29,73 +29,53 @@ All color tokens are centralized in `src/app/globals.css` within `:root` (as `--
 
 ## 📖 Design System Token Catalog (`src/app/globals.css`)
 
-### Brand & Accents
-| CSS Variable | Tailwind Utility | Semantic Purpose |
-| :--- | :--- | :--- |
-| `--pm-primary` | `bg-pm-primary`, `text-pm-primary` | Primary Brand Purple (`#9333ea`) |
-| `--pm-primary-hover` | `bg-pm-primary-hover` | Interactive hover state (`#a855f7`) |
-| `--pm-accent` | `bg-pm-accent`, `text-pm-accent` | Vibrant accent & active state (`#c084fc`) |
-| `--pm-light` | `bg-pm-light`, `text-pm-light` | Light lavender highlight (`#e9d5ff`) |
-| `--pm-dark` | `bg-pm-dark`, `text-pm-dark` | Deep purple shade (`#581c87`) |
-| `--pm-deep` | `bg-pm-deep`, `text-pm-deep` | Atmospheric dark purple (`#3b0764`) |
-| `--pm-glow` | `var(--pm-glow)` | Standard atmospheric ambient glow |
-| `--pm-glow-strong` | `var(--pm-glow-strong)` | Intense neon glow / bloom |
+Tokens live in `:root` (`--pm-*`) and are exposed to Tailwind in `@theme`. Contrast ratios are measured on `--pm-navy-950`.
 
-### Surfaces & Backgrounds
-| CSS Variable | Tailwind Utility | Semantic Purpose |
-| :--- | :--- | :--- |
-| `--pm-bg` | `bg-pm-bg` | Absolute canvas black (`#000000`) |
-| `--pm-bg-dark` | `bg-pm-bg-dark` | Deep dark slate (`#050511`) |
-| `--pm-bg-gradient-from` | `from-pm-bg-gradient-from` | Ambient background gradient start |
-| `--pm-bg-gradient-via` | `via-pm-bg-gradient-via` | Ambient background gradient center |
-| `--pm-bg-gradient-to` | `to-pm-bg-gradient-to` | Ambient background gradient end |
-| `--pm-card` | `bg-pm-card` | Translucent glass surface |
-| `--pm-card-hover` | `bg-pm-card-hover` | Glass surface on hover |
-| `--pm-card-border` | `border-pm-card-border` | Glass container subtle border |
-| `--pm-border` | `border-pm-border` | Purple brand border |
-| `--pm-border-hover` | `border-pm-border-hover` | Highlighted brand border |
+### Colour
+The site is light by default. Add `.pm-dark` to a section (header, hero and footer use it) to switch every token below to the dark palette — the colour utilities are declared with `@theme inline`, so they follow the scope.
 
-### Typography
-| CSS Variable | Tailwind Utility | Semantic Purpose |
+| CSS variable | Tailwind utility | Purpose |
 | :--- | :--- | :--- |
-| `--pm-text-primary` | `text-pm-text-primary` | High-contrast headings & titles (`#ffffff`) |
-| `--pm-text-secondary` | `text-pm-text-secondary` | Secondary text & descriptions (`#d4d4d8`) |
-| `--pm-text-muted` | `text-pm-text-muted` | Badges, tags & metadata (`#a1a1aa`) |
+| `--pm-bg` | `bg-pm-bg` | Page background (white; black in `.pm-dark`) |
+| `--pm-surface-alt` / `--pm-surface` / `--pm-field` | `bg-pm-surface-alt` … | Alternate sections (soft lavender), cards, inputs |
+| `--pm-line` / `--pm-line-strong` | `border-pm-line` … | Hairline rules / input borders (≥3:1) |
+| `--pm-text` / `-secondary` / `-muted` | `text-pm-text` … | Body text, all ≥6:1 |
+| `--pm-purple-600` / `-700` | `bg-pm-purple-600` … | Primary button fill / hover — always pair with `text-pm-on-accent` |
+| `--pm-on-accent` | `text-pm-on-accent` | White text on purple fills |
+| `--pm-accent` / `--pm-accent-strong` | `text-pm-accent` … | Accent text and rules / links, highlights, focus ring |
+| `--pm-tint` | `bg-pm-tint` | Purple-tinted panels (Rise Together, outcomes) |
+| `--pm-red` / `--pm-blue` | `text-pm-red` … | "Why Purple": youth + experience |
+| `--pm-success` / `--pm-error` / `--pm-whatsapp` | `text-pm-success` … | Status colours |
 
-### Timeline & Pyramid Elements
-| CSS Variable | Tailwind Utility / SVG | Semantic Purpose |
-| :--- | :--- | :--- |
-| `--pm-timeline-track` | `bg-pm-timeline-track`, `var(--pm-timeline-track)` | Vertical connector line |
-| `--pm-timeline-node` | `bg-pm-timeline-node`, `var(--pm-timeline-node)` | Node dot on timeline |
-| `--pm-timeline-node-active` | `bg-pm-timeline-node-active` | Active/hovered node dot |
-| `--pm-icon-box-bg` | `bg-pm-icon-box-bg` | Glassmorphic square icon card |
-| `--pm-icon-box-border` | `border-pm-icon-box-border` | Icon card border |
-| `--pm-pyramid-rim` | `var(--pm-pyramid-rim)` | Top rim neon stroke |
-| `--pm-pyramid-rim-bright` | `var(--pm-pyramid-rim-bright)` | High-intensity horizontal flare |
-| `--pm-pyramid-orbit` | `var(--pm-pyramid-orbit)` | Concentric orbit line |
-
-### Status & Feedback
-| CSS Variable | Tailwind Utility | Semantic Purpose |
-| :--- | :--- | :--- |
-| `--pm-success` | `text-pm-success`, `bg-pm-success` | Success feedback |
-| `--pm-error` | `text-pm-error`, `border-pm-error` | Error feedback |
-| `--pm-whatsapp` | `bg-pm-whatsapp` | WhatsApp button color |
-| `--pm-red` | `text-pm-red`, `bg-pm-red` | Red youth marker (`#f43f5e`) |
-| `--pm-blue` | `text-pm-blue`, `bg-pm-blue` | Blue professional marker (`#3b82f6`) |
-| `--pm-story-card-bg` | `bg-pm-story-card-bg` | Why Purple story pill card surface |
-| `--pm-story-card-border` | `border-pm-story-card-border` | Story card subtle border |
-| `--pm-scrollbar-track` | `var(--pm-scrollbar-track)` | Scrollbar track background |
-| `--pm-scrollbar-thumb` | `var(--pm-scrollbar-thumb)` | Scrollbar thumb |
-| `--pm-teal` | `bg-pm-teal`, `text-pm-teal` | Teal accent — AI+Compassion flagship (`#0d9488`) |
-| `--pm-teal-light` | `text-pm-teal-light` | Teal light — AI+Compassion highlights (`#2dd4bf`) |
-| `--pm-teal-dark` | `bg-pm-teal-dark` | Teal dark — AI+Compassion deep tone (`#0f766e`) |
-| `--pm-teal-glow` | `var(--pm-teal-glow)` | Teal glow shadow for AI+Compassion cards |
+### Type, spacing, radii, motion
+- Two typefaces only: Montserrat (`font-display`) and Inter (`font-sans`), self-hosted in `src/app/fonts/` (OFL).
+- Type scale: `text-base` (16px, minimum for body and interactive text), `text-lg`, `text-xl`, `text-2xl`, `text-display-sm|md|lg` (fluid headings). `text-sm` (14px) is for eyebrow labels and badges only.
+- Spacing: 4px base (`--spacing: 0.25rem`); use the Tailwind scale, never arbitrary pixel values.
+- Radii: `rounded-sm` 4px, `rounded-md` 8px, `rounded-lg` 16px. Shadow: `shadow-dialog` only.
+- Motion: `--pm-duration-fast|base`, `ease-pm`. Everything is disabled under `prefers-reduced-motion`.
+- Layout helpers: `.pm-container` (gutters 16/32/48px), `.pm-eyebrow`, `.pm-prose`, `.pm-stretched-link`.
 
 ---
 
-## 🛠️ Tech Stack & Conventions
-- **Framework**: Next.js 15.5.3 (Turbopack, App Router)
-- **Styling**: Tailwind CSS v4 (`@theme inline`, custom properties in `src/app/globals.css`)
-- **Animation**: Framer Motion & GSAP
-- **Linter**: `oxlint` (`bun run lint`)
-- **Type Checking**: Run `npx tsc --noEmit` before concluding any task.
+## ♿ Accessibility rules
+- One `<h1>` per page; headings never skip levels.
+- Every control is ≥44×44px (`buttonClass()` gives 48px). Visible labels on every field (`components/join/Field.tsx`).
+- No information only on hover or only through colour. Icon-only controls need an accessible name.
+- External links use `ExternalLink` (new tab, `noopener noreferrer`, announced).
+- `npm test` runs axe-core on every page; keep it green.
+
+## 🗂️ Content
+All copy that changes — activities, legacy, impact, FAQ, join paths, site facts — lives in `src/content/`. Only publish facts with a source; unknown values are `null` and render as "to be announced". Never add placeholder numbers to `impactMetrics`.
+
+## 🔒 Data handling
+- `/api/join`, `/api/feedback`, `/api/questions` write to Supabase with the service-role key (server-only).
+- Never log request bodies or Supabase error details (they echo personal data); use `logDbError`.
+- No analytics are installed. If you add them, never send form contents, names, emails, phone numbers or free text.
+
+---
+
+## 🛠️ Tech stack & commands
+- Next.js 16 (App Router, Turbopack), React 19, Tailwind CSS 4, TypeScript, Supabase.
+- `bun install` (bun.lock is the source of truth).
+- `npm run lint` (oxlint) · `npm run typecheck` · `npm test` (Vitest + Testing Library + axe-core) · `npm run build`.
+- Run `npm run check` before concluding any task.

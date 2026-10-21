@@ -1,80 +1,38 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { supabaseAdmin } from '@/lib/supabase'
+import { NextResponse, type NextRequest } from "next/server";
+import { supabaseAdmin } from "@/lib/supabase";
+import { badRequest, clientIp, insertedId, logDbError, optionalString, readJson } from "@/lib/api";
 
-interface FeedbackData {
-  reaction?: string | null
-  feedback?: string
-  timestamp: string
-  userAgent?: string
-}
+const REACTIONS = new Set(["very-sad", "sad", "neutral", "happy", "very-happy"]);
 
+/** POST /api/feedback — { reaction?, feedback?, timestamp } → 201 { message, id } | 400/500 { error } */
 export async function POST(request: NextRequest) {
-  try {
-    const body: FeedbackData = await request.json()
+  const body = await readJson(request);
+  if (!body) return badRequest("Request body must be a JSON object");
 
-    // Validate that at least one field is provided
-    if (!body.reaction && !body.feedback?.trim()) {
-      return NextResponse.json(
-        { error: 'Either reaction or feedback is required' },
-        { status: 400 }
-      )
-    }
-
-    // Get client IP address
-    const forwardedFor = request.headers.get('x-forwarded-for')
-    const realIp = request.headers.get('x-real-ip')
-    const clientIp = forwardedFor?.split(',')[0] || realIp || 'unknown'
-
-    // Prepare data for insertion as array
-    const feedbackData = [{
-      reaction: body.reaction || null,
-      feedback_text: body.feedback?.trim() || null,
-      user_agent: body.userAgent || null,
-      ip_address: clientIp,
-      created_at: new Date().toISOString(),
-    }]
-
-    // Insert into Supabase
-    const { data, error } = await supabaseAdmin
-      .from('feedback_submissions')
-      .insert(feedbackData)
-      .select()
-
-    if (error) {
-      console.error('Supabase error:', error)
-      return NextResponse.json(
-        { error: 'Failed to save feedback' },
-        { status: 500 }
-      )
-    }
-
-    // Safely extract ID from response
-    let feedbackId = null
-    try {
-      if (data) {
-        if (Array.isArray(data) && data.length > 0) {
-          feedbackId = data[0]?.id || null
-        } else if (typeof data === 'object' && 'id' in data) {
-          feedbackId = data.id
-        }
-      }
-    } catch (parseError) {
-      console.error('Error parsing response data:', parseError)
-    }
-
-    return NextResponse.json(
-      { 
-        message: 'Feedback submitted successfully',
-        id: feedbackId
-      },
-      { status: 201 }
-    )
-
-  } catch (error) {
-    console.error('Feedback submission error:', error)
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    )
+  const reaction = body.reaction ?? null;
+  if (reaction !== null && (typeof reaction !== "string" || !REACTIONS.has(reaction))) {
+    return badRequest("Invalid reaction");
   }
+  const feedback = optionalString(body.feedback, 2000);
+  if (feedback === undefined) return badRequest("Feedback must be text of at most 2000 characters");
+  if (!reaction && !feedback) return badRequest("Either reaction or feedback is required");
+
+  const { data, error } = await supabaseAdmin
+    .from("feedback_submissions")
+    .insert([
+      {
+        reaction,
+        feedback_text: feedback,
+        user_agent: request.headers.get("user-agent")?.slice(0, 500) ?? null,
+        ip_address: clientIp(request),
+      },
+    ])
+    .select("id");
+
+  if (error) {
+    logDbError("feedback", error);
+    return NextResponse.json({ error: "Failed to save feedback" }, { status: 500 });
+  }
+
+  return NextResponse.json({ message: "Feedback submitted successfully", id: insertedId(data) }, { status: 201 });
 }
