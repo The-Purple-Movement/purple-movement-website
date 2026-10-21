@@ -12,3 +12,8 @@
   NEXT_PUBLIC_SITE_URL = "https://purple-movement.com"
   # Secrets are NOT stored here. Set these in Netlify → Site configuration → Environment variables:
   #   NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
+
+# Netlify's Next.js runtime: server-renders /join, runs the /api routes as functions and
+# handles revalidation. Required because this site was originally created for a static Vite app.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
